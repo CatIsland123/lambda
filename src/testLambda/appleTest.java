@@ -1,4 +1,5 @@
 package testLambda;
+
 class Apple{
 	String color;
 	double weight;
@@ -23,17 +24,19 @@ public class appleTest {
 		 aps[0]=a;
 		 aps[1]=a1;
 	     appleTest lmd=new appleTest();
-	     lmd.ConsumerApple(aps, (apps)->{
-	    	 for(int i=0;i<aps.length;i++)
-	    		 return;
-	    	 
+	     lmd.ConsumerApple(aps, (Apple app)->{
+	    	 System.out.print(app+" ");
+	     });
+	     appleTest lm=new appleTest();
+	     lm.ConsumerApple(aps, new Consumer() {
+	    	 public void accept() {
+	    		 System.out.print(app);
+	    	 }
 	     });
 	     
-
+	     
 	}
 
-	private void ConsumerApple(Apple[] aps, Consumer<Apple> c) {
-		// TODO Auto-generated method stub
-		
-	}
 }
+
+
