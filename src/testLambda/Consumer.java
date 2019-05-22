@@ -12,3 +12,4 @@ public interface Consumer<T> {
         return (T t) -> { accept(t); after.accept(t); };
     }
 }
+
