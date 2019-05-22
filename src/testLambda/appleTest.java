@@ -24,32 +24,34 @@ public class appleTest {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		//lambda
+		 System.out.println("lambda 方法：");
 		 Apple [] aps = {new Apple("red",9),new Apple("yellow",3)};
-		 
-		 /*
 	     appleTest lmd=new appleTest();
 	     for(int i=0;i<aps.length ;i++) {
 	     lmd.ConsumerApple(aps, (Apple app)->{
-	    	 System.out.print(app.color+" "+app.weight);
+	    	 System.out.println(app.color+" "+app.weight);
 	     });
 	     
 	     }
-	    */
-		/*
-		appleTest.ConsumerApple(aps, new Consumer() {
+	
+	     System.out.println("匿名方法：");
+		 appleTest.ConsumerApple(aps, new Consumer<Apple>() {
 
 			@Override
-			public void accept(T t) {
+			public void accept(Apple t) {
 				// TODO Auto-generated method stub
-				System.out.println("苹果："+t);
+				System.out.println(t);
 			}
+
+			
 			
 		});
-		*/
-		
+		 System.out.println();
+		 System.out.println();
+		 System.out.println("lambda:");
 	    //lambda
 		ConsumerApple(aps, (apple)->System.out.println(apple));
-		
 		//匿名
 		System.out.println("匿名类：");
 		ConsumerApple(aps, new Consumer<Apple>() {
@@ -61,6 +63,7 @@ public class appleTest {
 			}
 			
 		});
+		
 	}
 	
 
