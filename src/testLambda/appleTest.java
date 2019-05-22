@@ -1,7 +1,6 @@
 package testLambda;
 import testLambda.Consumer;
 import java.util.Objects;
-
 class Apple {
 	String color;
 	double weight;
@@ -9,20 +8,25 @@ class Apple {
 		color=c;
 		weight=w;
 	}
+	@Override
+	public String toString() {
+		return "Apple [color=" + color + ", weight=" + weight + "]";
+	}
+	
 }
 
-public class appleTest {
+public class appleTest {    
 	public static void ConsumerApple (Apple[] apps,Consumer<Apple> c){
-		 for(Apple app:apps){
-			 c.accept(app);
+		 for(Apple apple:apps){
+			 c.accept(apple);
 		 }
 	 }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*
-		 Apple [] aps = null;
-		 aps[0]=new Apple("red",12.3);
-		 aps[1]=new Apple("yellow",11.1);
+		
+		 Apple [] aps = {new Apple("red",9),new Apple("yellow",3)};
+		 
+		 /*
 	     appleTest lmd=new appleTest();
 	     for(int i=0;i<aps.length ;i++) {
 	     lmd.ConsumerApple(aps, (Apple app)->{
@@ -31,13 +35,8 @@ public class appleTest {
 	     
 	     }
 	    */
-
-		//匿名内部类
-		Apple[] aps1=null;
-		aps1[0]=new Apple("red2",10.3);
-	    aps1[1]=new Apple("yellow",11.1);
-	    /*
-		appleTest.ConsumerApple(aps1, new Consumer() {
+		/*
+		appleTest.ConsumerApple(aps, new Consumer() {
 
 			@Override
 			public void accept(T t) {
@@ -47,11 +46,13 @@ public class appleTest {
 			
 		});
 		*/
-	    //匿名
-		//appleTest.ConsumerApple(aps1, apple->System.out.println(apple));
 		
-		//lambda
-		ConsumerApple(aps1, new Consumer<Apple>() {
+	    //lambda
+		ConsumerApple(aps, (apple)->System.out.println(apple));
+		
+		//匿名
+		System.out.println("匿名类：");
+		ConsumerApple(aps, new Consumer<Apple>() {
 
 			@Override
 			public void accept(Apple t) {
@@ -64,7 +65,6 @@ public class appleTest {
 	
 
 	 
-
 }
 
 
